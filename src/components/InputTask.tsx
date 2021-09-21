@@ -1,7 +1,6 @@
 import { Button, Input } from "antd";
 import { FC, useState } from "react";
 import store from "../store/index";
-import shortid from "shortid";
 import { observer } from "mobx-react-lite";
 import styled from "styled-components";
 
@@ -16,11 +15,7 @@ export const InputTask: FC = observer(() => {
 
   const addTodo = () => {
     if (text !== "") {
-      store.addToDo({
-        todo: text,
-        id: shortid.generate(),
-        isComplete: false,
-      });
+      store.addToDo(text);
     }
     setText("");
   };

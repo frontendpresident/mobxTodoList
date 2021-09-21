@@ -17,6 +17,6 @@ export const FilterOptions: FC = observer(() => (
   <Wrapper>
     <Button onClick={() => store.allTasks()}>All tasks</Button>
     <Button onClick={() => store.filtredCompleted()}>Completed tasks</Button>
-    <Button onClick={() => store.feltredUncompleted()}>Uncompleted</Button>
+    <Button onClick={() => store.filtredUncompleted()}>Uncompleted</Button>
   </Wrapper>
 ));

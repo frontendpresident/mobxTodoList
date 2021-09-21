@@ -1,3 +1,4 @@
+import shortid from "shortid";
 import { makeAutoObservable } from "mobx";
 
 export type ToDoType = {
@@ -15,9 +16,13 @@ class ToDoListStore {
     makeAutoObservable(this);
   }
 
-  addToDo(todo: ToDoType) {
+  addToDo(text: string) {
     this.filter = "all";
-    this.todos.push(todo);
+    this.todos.push({
+      todo: text,
+      id: shortid.generate(),
+      isComplete: false,
+    });
   }
 
   removeToDo(id: string) {
@@ -42,7 +47,7 @@ class ToDoListStore {
     this.filter = "completed";
   }
 
-  feltredUncompleted() {
+  filtredUncompleted() {
     this.filtredTodos = this.todos.filter((todo) => !todo.isComplete);
     this.filter = "uncompleted";
   }
